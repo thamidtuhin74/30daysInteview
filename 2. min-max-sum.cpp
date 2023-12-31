@@ -8,8 +8,6 @@ int main(){
         scanf("%ld", &arr[i]);
     }
     sort(arr, arr+5);
-    long minSum = 0;
-    long maxSum = 0;
     long sum = 0;
 
     
