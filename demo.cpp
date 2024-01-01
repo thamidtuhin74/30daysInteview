@@ -15,12 +15,14 @@ int main(){
         indexArray[x]++;
     }
 
-    for(int i=0;i<101;i++){
+    for(int i=0;i<n;i++){
         if(indexArray[i]==1){
             cout<<i<<endl;
         }
     }
     
+    cout<<"Hello"<<endl;
+ 
  
     return 0;
 }
