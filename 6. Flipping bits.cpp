@@ -4,9 +4,9 @@ int main(){
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
  
-    int t;
-    cin>> t;
-    while(t>0){
+    int x;
+    cin>> x;
+    while(x>0){
         unsigned int deciNum,t;
         cin>> deciNum;
         
@@ -22,7 +22,7 @@ int main(){
         // cout<<binaryNum <<endl; 
         deciNum = binaryNum.to_ulong();
         cout<<deciNum <<endl; 
-        t--;
+        x--;
     }
     return 0;
 }
