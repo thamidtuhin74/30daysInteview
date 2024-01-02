@@ -6,7 +6,7 @@ int main(){
  
     int x;
     cin>> x;
-    while(t>0){
+    while(x>0){
         unsigned int deciNum,t;
         cin>> deciNum;
         
