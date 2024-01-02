@@ -7,7 +7,7 @@ int main(){
     int x;
     cin>> x;
     while(x>0){
-        unsigned int deciNum,t;
+        unsigned int deciNum,t,result;
         cin>> deciNum;
         
         // cout<<deciNum <<endl; 
@@ -26,21 +26,12 @@ int main(){
             // cout<<DtoB[31-i]<<endl;
             // cout<<deciNum;  
         }
-        
-        
-        // for(int i=0;i<32;i++){
-        //     if(DtoB[i]==0){
-        //         DtoB[i]=1;
-        //     }
-        //     else{
-        //         DtoB[i]=0;
-        //     }
-        // }
-        
-        for(int i=0;i<32;i++){
-            deciNum = deciNum + (DtoB[i]*pow(2,i));
+       
+        result = 0;
+        for(int i=31;i>=0;i--){
+            result = result + (DtoB[i]*pow(2,i));
         }
-        cout<<deciNum <<endl; 
+        cout<<result <<endl; 
         x--;
     }
     return 0;

@@ -8,6 +8,7 @@
         "stacktrace": "cpp",
         "iomanip": "cpp",
         "iosfwd": "cpp",
-        "*.tcc": "cpp"
+        "*.tcc": "cpp",
+        "complex": "cpp"
     }
 }
