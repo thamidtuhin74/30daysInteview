@@ -26,10 +26,13 @@ int main(){
             // cout<<DtoB[31-i]<<endl;
             // cout<<deciNum;  
         }
+        
        
         result = 0;
+        int j =0;
         for(int i=31;i>=0;i--){
-            result = result + (DtoB[i]*pow(2,i));
+            result = result + (DtoB[i]*pow(2,j));
+            j++;
         }
         cout<<result <<endl; 
         x--;
