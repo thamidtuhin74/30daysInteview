@@ -12,14 +12,19 @@ int main(){
     cin>>d;
     cin>>m;
     int result=0;
-    for(int i=0;i<n;i++){
-        if(s[i]+s[i+1]==d){
-            result++;
-            i++;
+    if(n==1 && s[0]==d){
+        result++;
+    }
+    int sum;
+    for(int i=0;i<n-1;i++){
+        sum = s[i];
+        for(int j=i+1;j<=i+m-1;j++){
+            sum += s[j];    
         }
-        if(i==n-1 && s[i]==d){
-            result++;
-        }
+        if(sum==d){
+                result++;
+                sum = 0;
+            }
     }
     cout<<result<<endl;
  
