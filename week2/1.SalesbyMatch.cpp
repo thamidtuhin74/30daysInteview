@@ -18,8 +18,7 @@ int main(){
             countPair+= sockCount[i]/2;
         }
     }
-    
- 
+     
     cout<<countPair<<endl;
  
  
