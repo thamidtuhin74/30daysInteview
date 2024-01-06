@@ -1,2 +1,3 @@
-###problem solving interview preparation
-##Hackerrank 30days challenges 
+### problem solving interview preparation
+
+## Hackerrank 30days challenges 
