@@ -11,11 +11,11 @@ int main(){
     {
         cin>>n>>h;
 
-        if(n%2==1 || h==1){
-            cout<<1<<endl;
+        if(n%2==0 || h==1){
+            cout<<2<<endl;
         }
         else{
-            cout<<2<<endl;
+            cout<<1<<endl;
         }
         t--;
     }
