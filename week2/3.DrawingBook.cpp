@@ -9,6 +9,9 @@ int main(){
 
     int front = p/2;
     int back = (n-p)/2;
+
+    (n%2==0)?(back += p%2):(back +=0);
+
     
     if(front>=back){
         cout<<back<<endl;
