@@ -8,56 +8,24 @@ int main(){
  
     int n,q;
     cin>>n>>q;
-    vector<long> arr0;
-    vector<long> arr1;
-    long lastAns = 0;
+    vector<int> arr[n];
+    // vector<long> arr1;
+    
+    int lastAns = 0;
 
     while(q>0){
-        long x,y,qType,idx;
+        int x,y,qType,idx;
         cin>>qType>>x>>y;
         // cout<<qType<<x<<y;
         if(qType==1){
             idx = ((x^lastAns)%n);
             // cout<<"Idx = "<<idx<<endl;
-            if(idx==0){
-                arr0.push_back(y);
-
-                // cout <<"arr0 = [";
-                // for (int value : arr0) {
-                //     cout << value << " ";
-                // }
-                // cout <<"]"<< endl;
-            }
-            else{
-                arr1.push_back(y);
-
-                // cout <<"arr1 = ["<<endl;
-                // for (int value : arr1) {
-                //     cout << value << " ";
-                // }
-                // cout <<"]"<< endl;
-            }         
+            arr[idx].push_back(y);       
         }
         else if(qType==2){
             idx = ((x^lastAns)%n);
-            // cout<<"Idx = "<<idx<<endl;
-
-            if(idx==0){
-                // arr0.push_back(y);
-                int size0 = arr0.size();
-                if (size0 > 0) {
-                    lastAns = arr0[y % size0];
-                    cout << lastAns << endl;
-                } 
-
-            }
-            else{
-                int size1 = arr1.size();
-                if (size1 > 0) {
-                    lastAns = arr1[y % size1];
-                    cout << lastAns << endl;
-                }
-            }
+            lastAns = arr[idx][y% (arr[idx].size())];
+            cout << lastAns << endl;
         }
         q--;
     }
