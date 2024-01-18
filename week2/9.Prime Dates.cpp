@@ -4,10 +4,17 @@ int main(){
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
  
-    int n;
-    cin>>n;
+
+
+
+    int n,t;
+    cin>>t;
+    while(t--){
+        cin>>n;
+        cout<<n<<endl;
+
+    }
  
-    cout<<n<<endl;
     
     
  
