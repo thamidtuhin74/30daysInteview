@@ -1,0 +1,100 @@
+// Use SMTP for sending emails
+add_action('phpmailer_init', 'setup_smtp');
+
+function setup_smtp($phpmailer) {
+    $phpmailer->isSMTP(); // Set mailer to use SMTP
+    $phpmailer->Host = 'smtp.gmail.com'; // Specify the SMTP server
+    $phpmailer->Port = 465; // Specify the SMTP port
+    $phpmailer->SMTPAuth = true; // Enable SMTP authentication
+    $phpmailer->Username = 'altahmiduzzamantuhin74@gmail.com'; // SMTP username
+    $phpmailer->Password = 'bvqt euew bgfw ukyt'; // SMTP password
+    $phpmailer->SMTPSecure = 'ssl'; // Encryption type (ssl or tls)
+    $phpmailer->From = 'altahmiduzzamantuhin74@gmail.com'; // Sender's email address
+    $phpmailer->FromName = 'CEO - Woocommerce of website'; // Sender's name
+}
+
+// Handle Contact Form 7 submission
+add_action('wpcf7_mail_sent', 'custom_cf7_mail_sent', 10, 1);
+
+function custom_cf7_mail_sent($contact_form) {
+    $submission = WPCF7_Submission::get_instance();
+
+    if ($submission) {
+        // Get form data
+        $posted_data = $submission->get_posted_data();
+
+        // Set email recipients
+        $to = 'thamidtuhin74@gmail.com';
+        $subject = 'New Form Submission';
+
+        // Build email message
+        $message = "Name: {$posted_data['your-name']}\n";
+        $message .= "Email: {$posted_data['your-email']}\n";
+        $message .= "Mobile Number: {$posted_data['your-phone']}\n";
+        $message .= "Date of Birth: {$posted_data['your-dob']}\n";
+        $message .= "Country: {$posted_data['your-country']}\n";
+        $message .= "Gender: {$posted_data['your-gender']}\n";
+        $message .= "Age Range: {$posted_data['your-age']}\n";
+        $message .= "Monthly Newsletter: " . (isset($posted_data['your-newsletter']) ? 'Yes' : 'No') . "\n";
+        $message .= "Message: {$posted_data['textarea-380']}\n";
+
+        // Set headers
+        $headers = "From: {$posted_data['your-email']}\r\n";
+
+        // Send email
+        wp_mail($to, $subject, $message, $headers);
+    }
+}
+
+// Handle Contact Form 7 submission
+add_action('wpcf7_mail_sent', 'custom_cf7_mail_sent', 10, 1);
+
+function custom_cf7_mail_sent($contact_form) {
+    $submission = WPCF7_Submission::get_instance();
+
+    if ($submission) {
+        // Get form data
+        $posted_data = $submission->get_posted_data();
+
+        // Set site admin email
+        $admin_email = get_option('admin_email');
+
+        // Set email recipients
+        $to_admin = $admin_email;
+        $to_user = $posted_data['your-email'];
+        $subject_admin = 'New Form Submission (Admin)';
+        $subject_user = 'Thank You for Your Submission';
+
+        // Build email messages
+        $message_admin = "Admin, you have received a new form submission:\n\n";
+        $message_admin .= "Name: {$posted_data['your-name']}\n";
+        $message_admin .= "Email: {$posted_data['your-email']}\n";
+        $message_admin .= "Mobile Number: {$posted_data['your-phone']}\n";
+        $message_admin .= "Date of Birth: {$posted_data['your-dob']}\n";
+        $message_admin .= "Country: {$posted_data['your-country']}\n";
+        $message_admin .= "Gender: {$posted_data['your-gender']}\n";
+        $message_admin .= "Age Range: {$posted_data['your-age']}\n";
+        $message_admin .= "Monthly Newsletter: " . (isset($posted_data['your-newsletter']) ? 'Yes' : 'No') . "\n";
+        $message_admin .= "Message: {$posted_data['textarea-380']}\n";
+
+        $message_user = "Thank you for submitting the form. We have received the following information:\n\n";
+        $message_user .= "Name: {$posted_data['your-name']}\n";
+        $message_user .= "Email: {$posted_data['your-email']}\n";
+        $message_user .= "Mobile Number: {$posted_data['your-phone']}\n";
+        $message_user .= "Date of Birth: {$posted_data['your-dob']}\n";
+        $message_user .= "Country: {$posted_data['your-country']}\n";
+        $message_user .= "Gender: {$posted_data['your-gender']}\n";
+        $message_user .= "Age Range: {$posted_data['your-age']}\n";
+        $message_user .= "Monthly Newsletter: " . (isset($posted_data['your-newsletter']) ? 'Yes' : 'No') . "\n";
+        $message_user .= "Message: {$posted_data['textarea-380']}\n";
+
+        // Set headers
+        $headers_admin = "From: {$posted_data['your-email']}\r\n";
+        $headers_user = "From: {$admin_email}\r\n";
+
+        // Send emails
+        wp_mail($to_admin, $subject_admin, $message_admin, $headers_admin);
+        wp_mail($to_user, $subject_user, $message_user, $headers_user);
+    }
+}
+
