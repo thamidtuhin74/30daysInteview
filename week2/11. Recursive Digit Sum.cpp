@@ -1,17 +1,24 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-int calculation(string kTimesN[], int arrSize, int k){
-    int sum;
+void calculation(int sum){
+    string charSum = to_string(sum);
+    int newSum = 0;
+    for(__SIZE_TYPE__ i=0;i<charSum.length();i++){
+        newSum = newSum + (charSum[i]-'0');
+        // cout<<"newSum = "<<newSum<<endl;
 
-    for(int i=0;i<k;i++){
-        
     }
-
+    sum = newSum;
+    
     if(sum>9){
-        calculation(kTimesN,arrSize,k);
+        calculation(sum);
     }
+    else{
+        // return sum;
+        cout<<sum<<endl;
 
+    }
 }
 
 int main(){
@@ -26,19 +33,27 @@ int main(){
     for(int i=0;i<k;i++){    
         kTimesN.append(n);
     }
-    cout<<kTimesN<<endl;
+    // cout<<kTimesN<<endl;
 
     int sum=0;
 
-    for(int i=0;i<kTimesN.length();i++){
-        sum+= stoi(kTimesN[0]);
+    for(__SIZE_TYPE__ i=0;i<kTimesN.length();i++){
+        int x = kTimesN[i]-'0';
+        // cout<<"x = "<<x<<endl;
+        sum+= x;
     }
+    // cout<<"Initial Sum = "<<sum<<endl;
 
-    // calculation(kTimesN , arrSize, k);
+    if(sum>9){
+        calculation(sum);
+        // cout<<"Function : "<<calculation(sum)<<endl;
 
+    }
+    else{
+        // cout<<"Without Function : "<<sum<<endl;
+        cout<<sum<<endl;
 
-
-    
+    }
  
     return 0;
 }
