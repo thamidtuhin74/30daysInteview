@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-void calculation(int sum){
+void calculation(long long int sum){
     string charSum = to_string(sum);
     int newSum = 0;
     for(__SIZE_TYPE__ i=0;i<charSum.length();i++){
@@ -27,22 +27,15 @@ int main(){
     string n;
     int k;
     cin>>n>>k;
-    string kTimesN;
 
-    
-    for(int i=0;i<k;i++){    
-        kTimesN.append(n);
-    }
-    // cout<<kTimesN<<endl;
+    long long int sum=0;
 
-    int sum=0;
-
-    for(__SIZE_TYPE__ i=0;i<kTimesN.length();i++){
-        int x = kTimesN[i]-'0';
+    for(__SIZE_TYPE__ i=0;i<n.length();i++){
+        int x = n[i]-'0';
         // cout<<"x = "<<x<<endl;
         sum+= x;
     }
-    // cout<<"Initial Sum = "<<sum<<endl;
+    sum  = sum * k;
 
     if(sum>9){
         calculation(sum);
