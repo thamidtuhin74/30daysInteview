@@ -47,8 +47,10 @@ int main(){
         noOfbit = log2(n)+0;
         int count = 0;
 
-        if(noOfbit==1){
+        if(n==1){
             cout<<"Richard"<<endl;
+        }else if(n==2){
+            cout<<"Louise"<<endl;
         }
         else{
             int x = n & (n-1);
